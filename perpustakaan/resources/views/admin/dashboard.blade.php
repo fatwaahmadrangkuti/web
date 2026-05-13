@@ -2,25 +2,42 @@
 @section('title', 'Dashboard Admin')
 
 @section('content')
+
+{{-- ============================================================
+     STAT CARDS — 4 kartu besar (col-md-3 tiap card)
+     Angka besar di atas, label di bawah (seperti gambar referensi)
+     Kelola Pesanan TETAP ditampilkan sesuai permintaan
+     ============================================================ --}}
 <div class="row g-4 mb-4">
-    <div class="col-md-4">
+
+    <div class="col-md-3">
         <div class="stat-card" style="background: linear-gradient(135deg, #a08c64, #7a6748);">
             <div class="stat-number">{{ $totalBuku }}</div>
             <div class="stat-label"><i class="bi bi-book me-2"></i>Total Buku</div>
         </div>
     </div>
-    <div class="col-md-4">
+
+    <div class="col-md-3">
         <div class="stat-card" style="background: linear-gradient(135deg, #cbbba0, #a08c64);">
             <div class="stat-number">{{ $totalKategori }}</div>
             <div class="stat-label"><i class="bi bi-tags me-2"></i>Total Kategori</div>
         </div>
     </div>
-    <div class="col-md-4">
+
+    <div class="col-md-3">
         <div class="stat-card" style="background: linear-gradient(135deg, #d4a853, #b88a30);">
             <div class="stat-number">{{ $totalUser }}</div>
             <div class="stat-label"><i class="bi bi-people me-2"></i>Total User</div>
         </div>
     </div>
+
+    <div class="col-md-3">
+        <div class="stat-card" style="background: linear-gradient(135deg, #8aab78, #5a8a4a);">
+            <div class="stat-number">{{ $totalPesanan ?? 0 }}</div>
+            <div class="stat-label"><i class="bi bi-bag-check me-2"></i>Total Pesanan</div>
+        </div>
+    </div>
+
 </div>
 
 <div class="card">
@@ -40,7 +57,11 @@
             <a href="/admin/kategori/create" class="btn btn-outline-secondary">
                 <i class="bi bi-plus-circle me-1"></i> Tambah Kategori
             </a>
+            <a href="/admin/orders" class="btn btn-warning">
+                <i class="bi bi-bag-check me-1"></i> Kelola Pesanan
+            </a>
         </div>
     </div>
 </div>
+
 @endsection
